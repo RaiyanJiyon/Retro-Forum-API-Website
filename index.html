@@ -31,7 +31,7 @@
 </head>
 
 <body class="font-mulish">
-    <header>
+    <header class="">
         <!-- navbar -->
         <div class="w-11/12 mx-auto navbar mt-5">
             <div class="navbar-start">
@@ -41,8 +41,8 @@
                 <!-- icons -->
                 <div class="hidden sm:flex justify-evenly items-center gap-3">
                     <!-- home -->
-                    <div
-                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="home">
+                    <div class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip"
+                        data-tip="home">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -50,8 +50,8 @@
                         </svg>
                     </div>
                     <!-- pencil -->
-                    <div
-                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="pencil">
+                    <div class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip"
+                        data-tip="pencil">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                             stroke="currentColor" class="size-6">
                             <path strokeLinecap="round" strokeLinejoin="round"
@@ -59,8 +59,8 @@
                         </svg>
                     </div>
                     <!-- user plus -->
-                    <div
-                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="user">
+                    <div class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip"
+                        data-tip="user">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -68,8 +68,8 @@
                         </svg>
                     </div>
                     <!-- flag -->
-                    <div
-                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="flag">
+                    <div class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip"
+                        data-tip="flag">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -78,6 +78,47 @@
                     </div>
                 </div>
                 <a class="btn bg-primary-color text-white font-bold rounded-3xl">Sign In</a>
+            </div>
+        </div>
+
+        <!-- Hero section -->
+        <div class="hero relative w-full md:w-11/12 mx-auto bg-[#12132D] mt-12 rounded-3xl">
+            <div class="hero-content flex-col justify-center items-center lg:flex-row p-4 md:p-12 lg:p-24 w-full">
+                <div class="w-full lg:w-1/2 mt-4">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight md:leading-[60px] text-center md:text-left">
+                        Welcome to the <span class="text-[#797DFC]">ReTro</span> Forum
+                    </h1>
+                    <p class="w-full md:w-4/5 py-4 md:py-6 text-white text-center md:text-left">
+                        Share your favorite opinion and win and wp forum coffee mug!
+                    </p>
+                    <label
+                        class="w-full md:w-4/5 input input-bordered flex items-center gap-2 rounded-3xl mt-4 md:mt-6">
+                        <input type="text" class="grow" placeholder="Search here anything" />
+                        <span
+                            class="badge badge-info p-4 bg-primary-color text-white font-bold cursor-pointer">Search</span>
+                    </label>
+                </div>
+
+                <div class="card rounded-3xl bg-white text-[#12132DCC] w-full lg:w-auto mt-6 lg:mt-0">
+                    <div class="card-body">
+                        <div class="flex justify-between items-center gap-4 md:gap-12">
+                            <h3 class="card-title text-base md:text-lg">Registered Users</h3>
+                            <p class="card-title text-base md:text-lg flex justify-end ">01</p>
+                        </div>
+                        <div class="flex justify-between items-center gap-4 md:gap-12">
+                            <h3 class="card-title text-base md:text-lg">Forum</h3>
+                            <p class="card-title text-base md:text-lg flex justify-end">01</p>
+                        </div>
+                        <div class="flex justify-between items-center gap-4 md:gap-12">
+                            <h3 class="card-title text-base md:text-lg">Topics</h3>
+                            <p class="card-title text-base md:text-lg flex justify-end">01</p>
+                        </div>
+                        <div class="flex justify-between items-center gap-4 md:gap-12">
+                            <h3 class="card-title text-base md:text-lg">Replies</h3>
+                            <p class="card-title text-base md:text-lg flex justify-end">01</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
