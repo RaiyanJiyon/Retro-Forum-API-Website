@@ -129,21 +129,27 @@
     <!-- main container starts here -->
     <main class="mt-20">
         <!-- Let's Discuss content section -->
-        <section class="w-1/2 mx-auto text-center space-y-4">
-            <h2 class="text-3xl font-extrabold">
-                Let’s Discuss
-            </h2>
-            <p class="text-[#12132D99]">
-                Yes, you can run unit tests and view the results directly within the app. The integrated testing
-                features allow for a streamlined .
-            </p>
+        <section class="w-11/12 mx-auto">
+            <div class="w-1/2 mx-auto text-center space-y-4">
+                <h2 class="text-3xl font-extrabold">
+                    Let’s Discuss
+                </h2>
+                <p class="text-[#12132D99]">
+                    Yes, you can run unit tests and view the results directly within the app. The integrated testing
+                    features allow for a streamlined .
+                </p>
+            </div>
+
+            <!-- discuss -->
+            <div class="mt-12">
+                <div id="discuss-container" class="w-full lg:w-9/12 space-y-6"></div>
+                <div></div>
+            </div>
         </section>
 
 
-
-
         <!-- Join Our Forum Section -->
-        <div class="hero relative w-full md:w-11/12 mx-auto bg-[#12132D] mt-12 rounded-3xl">
+        <section class="hero relative w-full md:w-11/12 mx-auto bg-[#12132D] mt-12 rounded-3xl">
             <div class="hero-content flex-col justify-center items-center lg:flex-row p-4 md:p-12 lg:p-24 w-full">
                 <div class="w-full lg:w-1/2 mt-4">
                     <h1
@@ -164,12 +170,12 @@
                     <img src="images/joinforum.png" alt="join forum image">
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Latest Posts section -->
         <section class="text-center space-y-4 mt-24">
             <!-- Latest Posts content -->
-            <div class="w-1/2 mx-auto">
+            <div class="w-1/2 mx-auto space-y-4">
                 <h2 class="text-3xl font-extrabold">
                     Latest Posts
                 </h2>
@@ -180,7 +186,8 @@
             </div>
 
             <!-- Latest Posts cards -->
-            <div id="posts-container" class="w-11/12 mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="posts-container"
+                class="w-11/12 mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             </div>
         </section>
 
