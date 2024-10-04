@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Ticket Landing Page</title>
+    <title>ReTro Form</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- google font family added -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
     <!-- daisy UI cdn -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +19,7 @@
             theme: {
                 extend: {
                     colors: {
-                        clifford: '#da373d',
+                        'primary-color': '#797DFC',
                     },
                     fontFamily: {
                         'mulish': ["Mulish", "sans-serif"],
@@ -29,8 +30,57 @@
     </script>
 </head>
 
-<body>
-    <header></header>
+<body class="font-mulish">
+    <header>
+        <!-- navbar -->
+        <div class="w-11/12 mx-auto navbar mt-5">
+            <div class="navbar-start">
+                <a class="btn btn-ghost text-xl font-bold">ReTro</a>
+            </div>
+            <div class="navbar-end gap-6">
+                <!-- icons -->
+                <div class="hidden sm:flex justify-evenly items-center gap-3">
+                    <!-- home -->
+                    <div
+                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="home">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                        </svg>
+                    </div>
+                    <!-- pencil -->
+                    <div
+                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="pencil">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                            stroke="currentColor" class="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round"
+                                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                        </svg>
+                    </div>
+                    <!-- user plus -->
+                    <div
+                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="user">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                        </svg>
+                    </div>
+                    <!-- flag -->
+                    <div
+                        class="flex justify-center items-center w-12 h-12 rounded-full bg-[#f8f8f8] border border-[#12132D08] cursor-pointer tooltip" data-tip="flag">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+                        </svg>
+                    </div>
+                </div>
+                <a class="btn bg-primary-color text-white font-bold rounded-3xl">Sign In</a>
+            </div>
+        </div>
+    </header>
     <main></main>
     <footer></footer>
 </body>
