@@ -1,8 +1,10 @@
+// Function to fetch and display all posts based on search category
 const allPost = async (searchText = 'Comedy') => {
     const noSearchMessage = document.getElementById('no-search-message');
     const discussForum = document.getElementById('discuss-forum');
 
     try {
+        // Fetch posts from API based on search category
         const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
         const data = await res.json();
         const posts = data.posts;
@@ -10,7 +12,7 @@ const allPost = async (searchText = 'Comedy') => {
         if (posts.length > 0) {
             displayAllPost(posts, searchText);
         } else {
-            console.error('No posts found for this category.');
+            // Show "no results" message and hide forum content
             noSearchMessage.classList.remove('hidden');
             discussForum.classList.add('hidden');
             toggleSpinner(false);
@@ -20,29 +22,25 @@ const allPost = async (searchText = 'Comedy') => {
         console.error('Error fetching posts:', error);
     }
 
+    // Hide "no results" message and show forum content
     noSearchMessage.classList.add('hidden');
     discussForum.classList.remove('hidden');
 };
 
-
+// Function to display all posts in the UI
 const displayAllPost = (posts, searchText) => {
     const discussContainer = document.getElementById('discuss-container');
-    discussContainer.textContent = '';
-
-    // if (posts.length === 0) {
-    //     noSearchMessage.classList.remove('hidden');
-    //     toggleSpinner(false);
-    //     return;
-    // } 
+    discussContainer.textContent = ''; // Clear existing content
 
     posts.forEach(post => {
         const discussCard = document.createElement('div');
         discussCard.classList.add('card', 'bg-[#F3F3F5]');
 
+        // Generate HTML structure for each post
         discussCard.innerHTML = `
             <div class="card-body">
                 <div class="flex flex-col md:flex-row gap-6">
-                    <!-- avatar -->
+                    <!-- Author avatar -->
                     <div class="avatar">
                         <div class="w-16 h-16 rounded-full">
                             <img src="${post.image}" />
@@ -50,6 +48,7 @@ const displayAllPost = (posts, searchText) => {
                     </div>
 
                     <div class="space-y-4">
+                        <!-- Category and author information -->
                         <div class="flex">
                             <p class="text-[#12132DCC] text-sm font-bold">
                                 #${post.category || 'No category'}
@@ -59,6 +58,7 @@ const displayAllPost = (posts, searchText) => {
                             </p>
                         </div>
 
+                        <!-- Post title and description -->
                         <div class="mt-3 space-y-3">
                             <h2 class="card-title font-extrabold">
                                 ${post.title || 'Undefined title'}
@@ -70,8 +70,10 @@ const displayAllPost = (posts, searchText) => {
 
                         <div class="border-dashed border border-[#12132D40]"></div>
 
+                        <!-- Post metrics section -->
                         <div class="flex justify-between items-center gap-6">
                             <div class="flex justify-between gap-6">
+                                <!-- Comment count with icon -->
                                 <div class="flex justify-center items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -82,6 +84,7 @@ const displayAllPost = (posts, searchText) => {
                                     </p>
                                 </div>
 
+                                <!-- View count with icon -->
                                 <div class="flex justify-center items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -94,6 +97,7 @@ const displayAllPost = (posts, searchText) => {
                                     </p>
                                 </div>
 
+                                <!-- Posted time with icon -->
                                 <div class="flex justify-center items-center gap-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -105,6 +109,7 @@ const displayAllPost = (posts, searchText) => {
                                 </div>
                             </div>
 
+                            <!-- Bookmark button with icon -->
                             <div onclick="bookmark('${post.id}', '${post.title}', ${post.view_count})" id="bookmark-msg" class="w-10 h-10 rounded-full bg-green-500 flex justify-center items-center cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -123,14 +128,15 @@ const displayAllPost = (posts, searchText) => {
     toggleSpinner(false)
 }
 
-let count = 0;
+let count = 0; // Counter for bookmarked posts
 
+// Function to handle bookmarking of posts
 const bookmark = (id, title, view_count) => {
     const bookmarkCount = document.getElementById('bookmark-count')
     const bookmarkContainer = document.getElementById('bookmark-container');
     const existingBookmarks = bookmarkContainer.querySelectorAll('.card-body p');
     
-    // Check if the bookmark already exists
+    // Check if the post is already bookmarked
     const isBookmarked = Array.from(existingBookmarks).some(el => el.textContent === title);
     
     if (!isBookmarked) {
@@ -149,11 +155,13 @@ const bookmark = (id, title, view_count) => {
             </div>`;
         bookmarkContainer.appendChild(bookmarkCard);
         
+        // Update bookmark counter
         count++;
         bookmarkCount.innerText = count;
     }
 }
 
+// Function to load latest posts
 const loadPost = async () => {
     try {
         const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
@@ -164,6 +172,7 @@ const loadPost = async () => {
     }
 }
 
+// Function to display latest posts
 const displayLatestPost = (posts) => {
     const postsContainer = document.getElementById('posts-container');
 
@@ -176,6 +185,7 @@ const displayLatestPost = (posts) => {
                 <img src="${post.cover_image}" alt="Post image" class="rounded-xl w-full" />
             </figure>
             <div class="card-body justify-start items-start w-11/12 mx-auto space-y-3">
+                <!-- Date with calendar icon -->
                 <div class="flex justify-between items-center gap-3">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -185,6 +195,7 @@ const displayLatestPost = (posts) => {
                 </div>
                 <h2 class="card-title text-left font-bold">${post.title || 'No title available'}</h2>
                 <p class="text-left">${post.description || 'No description available'}</p>
+                <!-- Author information section -->
                 <div class="flex justify-between gap-6">
                     <div class="avatar">
                         <div class="w-14 h-14 rounded-full">
@@ -203,6 +214,7 @@ const displayLatestPost = (posts) => {
     });
 }
 
+// Function to handle search action
 const searchHandler = (isLoading) => {
     toggleSpinner(true);
     const searchField = document.getElementById('search-field');
@@ -210,6 +222,7 @@ const searchHandler = (isLoading) => {
     allPost(searchText, isLoading);
 }
 
+// Function to toggle loading spinner visibility
 const toggleSpinner = (isToggle) => {
     const spinner = document.getElementById('spinner');
 
@@ -220,7 +233,6 @@ const toggleSpinner = (isToggle) => {
     }
 }
 
+// Initialize the page by loading posts
 loadPost();
 allPost();
-
-
