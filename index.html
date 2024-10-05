@@ -95,9 +95,9 @@
                     </p>
                     <label
                         class="w-full md:w-4/5 input input-bordered flex items-center gap-2 rounded-3xl mt-4 md:mt-6">
-                        <input type="text" class="grow" placeholder="Search here anything" />
-                        <span
-                            class="badge badge-info p-4 bg-primary-color text-white font-bold cursor-pointer">Search</span>
+                        <input id="search-field" type="text" class="grow" placeholder="Search here anything" />
+                        <span onclick="searchHandle()"
+                            class="badge badge-info p-4 bg-primary-color text-white font-bold hover:bg-gray-400 cursor-pointer">Search</span>
                     </label>
                 </div>
 
@@ -142,7 +142,7 @@
             </div>
 
             <!-- discuss forum -->
-            <div class="mt-12 flex flex-col md:flex-row gap-6">
+            <div id="discuss-forum" class="mt-12 flex flex-col md:flex-row gap-6">
                 <!-- Let's Discuss cards  -->
                 <div id="discuss-container" class="w-full lg:w-[70%] space-y-6"></div>
                 <!-- Let's Discuss bookmark -->
@@ -173,7 +173,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- Join Our Forum Section -->
         <section class="hero relative w-full md:w-11/12 mx-auto bg-[#12132D] mt-12 rounded-3xl">
@@ -215,6 +214,24 @@
             <!-- Latest Posts cards -->
             <div id="posts-container"
                 class="w-11/12 mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            </div>
+        </section>
+
+        <!-- no card item message section -->
+        <section>
+            <div id="no-search-message" class="hidden card bg-base-100">
+                <div class="card-body space-y-4">
+                    <h2 class="text-3xl font-bold text-center">
+                        No category found
+                    </h2>
+                    <h2 class="text-2xl font-semibold text-center text-[#706F6F]">
+                        Please refresh the page and try again
+                    </h2>
+                    <p class="text-[#706F6F] text-center">
+                        We're sorry, but your search didn't return any results.
+                        Please check your search term or try again later.
+                    </p>
+                </div>
             </div>
         </section>
 

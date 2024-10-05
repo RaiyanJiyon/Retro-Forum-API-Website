@@ -1,12 +1,23 @@
-const allPost = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
-    const data = await res.json();
-    const posts = data.posts
-    displayAllPost(posts);
-}
+const allPost = async (searchText = 'Comedy') => {
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
+        const data = await res.json();
+        const posts = data.posts;
 
-const displayAllPost = (posts) => {
+        if (posts.length > 0) {
+            displayAllPost(posts, searchText);
+        } else {
+            console.error('No posts found for this category.');
+        }
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+    }
+};
+
+
+const displayAllPost = (posts, searchText) => {
     const discussContainer = document.getElementById('discuss-container');
+    discussContainer.textContent = '';
 
     posts.forEach(post => {
         const discussCard = document.createElement('div');
@@ -126,9 +137,13 @@ const bookmark = (id, title, view_count) => {
 }
 
 const loadPost = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
-    const data = await res.json();
-    displayLatestPost(data);
+    try {
+        const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+        const data = await res.json();
+        displayLatestPost(data);
+    } catch (error) {
+        console.error("No posts found", error);
+    }
 }
 
 const displayLatestPost = (posts) => {
@@ -168,6 +183,13 @@ const displayLatestPost = (posts) => {
 
         postsContainer.appendChild(postCard);
     });
+}
+
+const searchHandle = () => {
+    const searchField = document.getElementById('search-field');
+    const searchText = searchField.value;
+    allPost(searchText);
+    
 }
 
 loadPost();
