@@ -1,4 +1,7 @@
 const allPost = async (searchText = 'Comedy') => {
+    const noSearchMessage = document.getElementById('no-search-message');
+    const discussForum = document.getElementById('discuss-forum');
+
     try {
         const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
         const data = await res.json();
@@ -8,16 +11,29 @@ const allPost = async (searchText = 'Comedy') => {
             displayAllPost(posts, searchText);
         } else {
             console.error('No posts found for this category.');
+            noSearchMessage.classList.remove('hidden');
+            discussForum.classList.add('hidden');
+            toggleSpinner(false);
+            return;
         }
     } catch (error) {
         console.error('Error fetching posts:', error);
     }
+
+    noSearchMessage.classList.add('hidden');
+    discussForum.classList.remove('hidden');
 };
 
 
 const displayAllPost = (posts, searchText) => {
     const discussContainer = document.getElementById('discuss-container');
     discussContainer.textContent = '';
+
+    // if (posts.length === 0) {
+    //     noSearchMessage.classList.remove('hidden');
+    //     toggleSpinner(false);
+    //     return;
+    // } 
 
     posts.forEach(post => {
         const discussCard = document.createElement('div');
@@ -103,6 +119,8 @@ const displayAllPost = (posts, searchText) => {
 
         discussContainer.appendChild(discussCard);
     });
+
+    toggleSpinner(false)
 }
 
 let count = 0;
@@ -185,11 +203,21 @@ const displayLatestPost = (posts) => {
     });
 }
 
-const searchHandle = () => {
+const searchHandler = (isLoading) => {
+    toggleSpinner(true);
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    allPost(searchText);
-    
+    allPost(searchText, isLoading);
+}
+
+const toggleSpinner = (isToggle) => {
+    const spinner = document.getElementById('spinner');
+
+    if (isToggle) {
+        spinner.classList.remove('hidden');
+    } else {
+        spinner.classList.add('hidden');
+    }
 }
 
 loadPost();
