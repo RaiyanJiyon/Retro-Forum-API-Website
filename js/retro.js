@@ -47,7 +47,7 @@ const displayAllPost = (posts, searchText) => {
                         </div>
                     </div>
 
-                    <div class="space-y-4">
+                    <div class="w-full space-y-4">
                         <!-- Category and author information -->
                         <div class="flex">
                             <p class="text-[#12132DCC] text-sm font-bold">
@@ -110,8 +110,8 @@ const displayAllPost = (posts, searchText) => {
                             </div>
 
                             <!-- Bookmark button with icon -->
-                            <div onclick="bookmark('${post.id}', '${post.title}', ${post.view_count})" id="bookmark-msg" class="w-10 h-10 rounded-full bg-green-500 flex justify-center items-center cursor-pointer">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-white">
+                            <div onclick="bookmark('${post.id}', '${post.title}', ${post.view_count})" id="bookmark-msg" class="md:w-10 md:h-10 rounded-full bg-green-500 flex justify-center items-center cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 md:w-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                                 </svg>
